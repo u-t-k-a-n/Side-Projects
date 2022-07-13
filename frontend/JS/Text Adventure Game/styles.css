@@ -1,0 +1,52 @@
+*,*::after,*::before {
+  box-sizing: border-box;
+  font-family: Gotham Rounded;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    background-color: white;
+    width: 800px;
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px;
+    font-size: 30px;
+}
+
+.btn-grid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn{
+    background-color: hsl(199, 75%, 60%);
+    color: white;
+    border: 1px solid hsl(199, 75%, 30%);
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn:hover{
+    border-color: black;
+}
+
+.btn:focus{
+    background-color: hsl(199, 80%, 18%);
+}
