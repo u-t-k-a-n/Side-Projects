@@ -1,0 +1,32 @@
+*,*::after,*::before {
+  box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #dbdbdb;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto min-content;
+    justify-content: center;
+    align-items: center;
+    justify-items: end;
+    font-size: 1.5rem;
+    gap: 5px 10px;
+}
+
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+input{
+    margin: 0;
+}
