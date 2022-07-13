@@ -1,0 +1,32 @@
+html,body{
+    margin: 0;
+}
+
+.full-screen-video-container {
+  position: relative;
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+}
+
+.full-screen-video-container video {
+  position: absolute;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.full-screen-video-content {
+  background-color: hsl(303, 21%, 55%);
+  color: #333;
+  padding: 20px;
+  font-size: 75px;
+  margin-top: 34px;
+}
