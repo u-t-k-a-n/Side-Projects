@@ -1,0 +1,122 @@
+@import url(http://fonts.googleapis.com/css?family=Poppins:400,500,700);
+
+*,*::after,*::before {
+  box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    padding: 0;
+    background: #2f303a;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: white;
+    min-height: 100vh;
+}
+
+.full-height-grow{
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo{
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-logo-name{
+    margin-left: 1rem;
+}
+
+.main-nav ul, .footer-nav ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a, .footer-nav a{
+    color: inherit;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.main-nav a:hover, .footer-nav a:hover{
+    color: #adadad
+}
+
+.main-header, .main-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.main-header{
+    height: 140px;
+}
+
+.main-footer{
+    height: 100px;
+    background-color: #202027;
+    font-weight: bold;
+}
+
+.social img{
+    width:1em;
+    margin-right: .25rem;
+}
+
+.main-footer .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    flex-grow: 1;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.sub-title{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+
+.btn{
+    color: white;
+    background: #1762a7;
+    text-decoration: none;
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    font-size: .9rem;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover{
+    background-color: #1a6cb9;
+}
+
+.btn:focus{
+    background-color: #5c99d1;
+}
+
+
+
+
+
