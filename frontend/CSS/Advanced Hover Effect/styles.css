@@ -1,0 +1,123 @@
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button{
+    margin: 1rem;
+}
+
+.btn{
+    --background-color: #f5f5f5;
+    --border-size: 2px;
+    --accent-color: #0ae;
+    background-color: var(--background-color);
+    border: none;
+    outline: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.btn.btn-border-pop::before{
+    content: '';
+    position: absolute;
+    border: var(--border-size) solid var(--background-color);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: -1;
+    transition: top, left, right, bottom 100ms ease-in-out;
+}
+
+.btn.btn-border-pop:hover::before,.btn.btn-border-pop:focus::before{
+    top: calc(var(--border-size) * -2);
+    left: calc(var(--border-size) * -2);
+    right: calc(var(--border-size) * -2);
+    bottom: calc(var(--border-size) * -2);
+}
+
+.btn.btn-background-slide::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: var(--accent-color);
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 100ms ease-in-out;
+    transform-origin: left;
+}
+
+.btn.btn-background-slide:hover::before,.btn.btn-background-slide:focus::before{
+    transform: scaleX(1);
+}
+
+.btn.btn-background-slide{
+    z-index: 1;
+    transform: color 300ms ease-in-out;
+}
+
+.btn.btn-background-slide:hover,.btn.btn-background-slide:focus{
+    color: white;
+}
+
+.btn-background-circle::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: var(--background-color);
+    z-index: -1;
+    border-radius: 50%;
+    transform: scale(3);
+    transition: transform 500ms ease-in-out;
+    transform-origin: center;
+}
+
+.btn-background-circle:hover::before,.btn-background-circle:focus::before{
+    transform: scale(0);
+}
+
+.btn-background-circle{
+    z-index: 1;
+    transform: color 500ms ease-in-out;
+    overflow: hidden;
+    background-color: var(--accent-color);
+}
+
+.btn-background-circle:hover,.btn-background-circle:focus{
+    color: white;
+}
+
+.btn.btn-border-underline::before{
+    content: "";
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: var(--accent-color);
+    height: var(--border-size);
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+.btn.btn-border-underline:hover::before,.btn.btn-border-underline:focus::before{
+    transform: scaleX(1);
+}
