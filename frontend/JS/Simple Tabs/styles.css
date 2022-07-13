@@ -1,0 +1,44 @@
+*,*::after,*::before {
+  box-sizing: border-box;
+}
+
+[data-tab-content]{
+    display: none;
+}
+
+.active[data-tab-content]{
+    display: block;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.tabs{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid black;
+}
+
+.tab{
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.tab.active{
+    background-color: rgb(143, 143, 143);
+}
+
+.tab:hover{
+    background-color: #ccc;
+}
+
+.tab-content{
+    margin-left: 20px;
+    margin-right: 20px;
+}
