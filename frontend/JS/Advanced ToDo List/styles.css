@@ -250,8 +250,24 @@ form{
 /* Add media max-width */
 @media (max-width: 900px) {
   body{
-    grid: "header header header" auto
-          ". lists active" auto /
-          1fr minmax(100px, 300px) minmax(250px, 500px);
+    grid: "header header" auto
+          "lists lists" auto
+          "active active" auto 
+  }
+  .all-tasks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .todo-list{
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    max-width: 80%;
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 50px;
   }
 }
