@@ -34,7 +34,7 @@ body{
     font-size: var(--fs-body);
     line-height: 1.6;
     overflow: hidden;
-    height: 100vh;
+    height: 100vmax;
     background: url(mars.jpg);
     background-size: cover;
     color: var(--clr-light);
@@ -86,7 +86,7 @@ a:hover{
     margin-top: 1em;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
+    gap: 2em; 
 }
 
 .date{
