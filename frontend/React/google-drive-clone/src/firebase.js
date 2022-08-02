@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, serverTimestamp } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, 
     onAuthStateChanged, sendPasswordResetEmail, updateEmail, updatePassword } from 'firebase/auth'
 
@@ -13,11 +13,18 @@ const app = initializeApp({
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 });
 
-const firestore = getFirestore(app);
-//export const database = {
-   // folders : firestore.collection("folders")
-
-//}
+export const firestore = getFirestore(app);
+export const database = {
+   folders : collection(firestore,"folders"),
+   files : collection(firestore,"files"),
+   getCurrentTimestamp : serverTimestamp,
+   formatDoc : (doc) => {
+         return {
+              id : doc.id,
+              ...doc.data()
+         }
+    }
+}
 
 export const auth = getAuth(app)
 export const methods = {

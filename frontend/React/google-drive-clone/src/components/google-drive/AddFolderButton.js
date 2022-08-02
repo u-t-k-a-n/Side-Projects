@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-import { Button, Modal, Form, ModalBody, ModalFooter } from 'react-bootstrap'
+import { Button, Modal, Form, ModalBody, ModalFooter, Alert } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
+import { database } from '../../firebase';
+import { addDoc } from 'firebase/firestore';
+import { useAuth } from '../../contexts/AuthContext';
 
 
 
-export default function AddFolderButton() {
+export default function AddFolderButton({ currentFolder}) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
+  const [error, setError] = useState('');
+  const { currentUser } = useAuth();
 
   function openModal() {
     setOpen(true);
@@ -17,14 +22,30 @@ export default function AddFolderButton() {
     setOpen(false);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    if (currentFolder == null) return;
+
+    try {
+      setError('');
+      const docRef = await addDoc(database.folders, { name : name, 
+        createdAt: database.getCurrentTimestamp(),  
+        parentId : currentFolder.id,
+        userId : currentUser.uid,
+      //  path
+      });
+    }
+    catch (error) {
+      setError("Failed to add folder");
+    }
     setName('');
     closeModal();
   }
 
   return (
     <>
+      {error && <Alert variant="danger" className='text-center text-danger'>{error}</Alert>}
       <Button variant='outline-success' onClick={openModal} size="sm">
         <FontAwesomeIcon icon={faFolderPlus} />
       </Button>
