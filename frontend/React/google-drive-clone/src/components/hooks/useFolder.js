@@ -89,6 +89,5 @@ export function useFolder(folderId = null, folder = null) {
         })
     }, [folderId, currentUser])
 
-
     return state
 }

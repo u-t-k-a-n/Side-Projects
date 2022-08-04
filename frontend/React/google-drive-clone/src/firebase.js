@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, serverTimestamp } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, 
     onAuthStateChanged, sendPasswordResetEmail, updateEmail, updatePassword } from 'firebase/auth'
 
@@ -36,4 +37,8 @@ export const methods = {
     updateEmail,
     updatePassword
 }
+
+export const storage = getStorage(app)
+
+
 export default app;

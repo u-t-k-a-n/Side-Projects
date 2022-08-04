@@ -13,7 +13,7 @@ export default function Folder({ folder }) {
           pathname: `/folder/${folder.id}`,
           state: { folder : folder }
         }
-        }
+       }
         variant='outline-dark'
         className='text-truncate w-100'
       >

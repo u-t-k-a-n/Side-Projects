@@ -12,7 +12,6 @@ import { ROOT_FOLDER } from '../hooks/useFolder';
 export default function AddFolderButton({ currentFolder}) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
-  const [error, setError] = useState('');
   const { currentUser } = useAuth();
 
   function openModal() {
@@ -34,7 +33,6 @@ export default function AddFolderButton({ currentFolder}) {
     }
 
     try {
-      setError('');
       const docRef = await addDoc(database.folders, { name : name, 
         createdAt: database.getCurrentTimestamp(),  
         parentId : currentFolder.id,
@@ -42,16 +40,13 @@ export default function AddFolderButton({ currentFolder}) {
         path : path
       });
     }
-    catch (error) {
-      setError("Failed to add folder");
-    }
+    catch {}
     setName('');
     closeModal();
   }
 
   return (
     <>
-      {error && <Alert variant="danger" className='text-center text-danger'>{error}</Alert>}
       <Button variant='outline-success' onClick={openModal} size="sm">
         <FontAwesomeIcon icon={faFolderPlus} />
       </Button>

@@ -11,18 +11,15 @@ export default function FolderBreadcrumbs({ currentFolder }) {
             className='flex-grow-1'
             listProps={{ className: 'bg-white pl-0 m-0' }}
         >
-            {path.map((folder,index) => (
+            {path.map((folder, index) => (
                 <Breadcrumb.Item
                     className='text-truncate d-inline-block'
                     style={{ maxWidth: "150px" }}
                     key={folder.id}
                     linkAs={Link}
-                    state={{ path: path }}
                     linkProps={{
-                        to: {
-                            pathname: folder.id ? `/folder/${folder.id}` : '/',
-                            state: { folder : { ...folder, path: path.slice(1,index) } }
-                        }
+                        to: { pathname: folder.id ? `/folder/${folder.id}` : '/' },
+                        state: { folder: { ...folder, path: path.slice(1, index) } }
                     }}
                 >
                     {folder.name}
@@ -33,7 +30,6 @@ export default function FolderBreadcrumbs({ currentFolder }) {
                     className='text-truncate d-inline-block'
                     style={{ maxWidth: "200px" }}
                     active
-                    state={{ path: path }}
                 >
                     {currentFolder.name}
                 </Breadcrumb.Item>
