@@ -45,14 +45,12 @@ export function ConversationsProvider({ children, id }) {
     useEffect(() => {
         if (socket == null) return
         socket.on('receive-message', addMessageToConversation)
-        console.log("receive-message" )
         return () => {
             socket.off('receive-message')
         }
     }, [socket, addMessageToConversation])
 
     function sendMessage(recipients, text) {
-        console.log("sendMessage", recipients, text)
         socket.emit("send-message", { recipients, text })
         addMessageToConversation({ recipients, text, sender: id })
     }

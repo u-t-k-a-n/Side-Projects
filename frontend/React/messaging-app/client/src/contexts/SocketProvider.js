@@ -12,11 +12,7 @@ export function SocketProvider({ children, id }) {
 
     useEffect(() => {
         const newSocket = io('http://localhost:5000', {
-            query: { id },
-            // withCredentials: true,
-            // extraHeaders: {
-            //     "my-custom-header": "abcd"
-            // }
+            query: { id }
         })
         setSocket(newSocket)
         return () => {
